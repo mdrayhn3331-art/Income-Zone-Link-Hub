@@ -8,10 +8,11 @@
 body{
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
     min-height:100vh;
     padding:20px;
-    overflow:hidden;
+    overflow-y:auto;
+    overflow-x:hidden;
     background:linear-gradient(-45deg,#000000,#062d1d,#00ff88,#02130b);
     background-size:400% 400%;
     animation:bgMove 12s ease infinite;
@@ -47,6 +48,7 @@ body{
 .bubbles{
     position:fixed;
     inset:0;
+    overflow:hidden;
     z-index:-1;
 }
 
@@ -70,13 +72,18 @@ body{
 .bubbles span:nth-child(6){left:92%;animation-duration:13s;}
 
 @keyframes float{
-    from{transform:translateY(0) scale(.5);}
-    to{transform:translateY(-120vh) scale(1.6);}
+    from{
+        transform:translateY(0) scale(.5);
+    }
+    to{
+        transform:translateY(-120vh) scale(1.6);
+    }
 }
 
 .card{
     width:100%;
     max-width:430px;
+    margin:40px auto;
     background:rgba(255,255,255,.08);
     backdrop-filter:blur(20px);
     border:1px solid rgba(0,255,136,.25);
@@ -105,24 +112,26 @@ p{
     margin:10px 0 20px;
 }
 
-a,.copy-btn{
+a,
+.copy-btn{
     display:block;
     width:100%;
-    text-decoration:none;
-    border:none;
-    cursor:pointer;
     margin:12px 0;
     padding:15px;
+    border:none;
     border-radius:18px;
     background:linear-gradient(145deg,#00ff88,#00b86b);
     color:#fff;
-    font-weight:bold;
     font-size:16px;
+    font-weight:bold;
+    text-decoration:none;
+    cursor:pointer;
     transition:.3s;
     box-shadow:0 8px 0 #008c52,0 0 20px rgba(0,255,136,.45);
 }
 
-a:hover,.copy-btn:hover{
+a:hover,
+.copy-btn:hover{
     transform:translateY(-5px);
     box-shadow:0 12px 0 #008c52,0 0 35px #00ff88;
 }
@@ -131,4 +140,4 @@ a:hover,.copy-btn:hover{
     margin-top:20px;
     color:#ccc;
     font-size:13px;
-  }
+    }
